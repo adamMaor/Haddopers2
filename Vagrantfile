@@ -10,7 +10,8 @@ Vagrant.configure(2) do |config|
         nodeA.vm.provision "shell", inline: <<-SHELL
 
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
-            sudo echo "IP_ADDRESS slave" >> /etc/hosts
+			# this is the slave IP : 56.22.20.02
+            sudo echo "56.22.20.02 slave" >> /etc/hosts
 
             # Update VM to the latest binaries from distribution
             # package.
@@ -42,7 +43,8 @@ Vagrant.configure(2) do |config|
         nodeA.vm.network "forwarded_port", guest: 8088, host: 9088
         nodeB.vm.provision "shell", inline: <<-SHELL
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
-            sudo echo "IP_ADDRESS master" >> /etc/hosts
+			# this is the master IP : 56.22.20.01
+            sudo echo "56.22.20.01 master" >> /etc/hosts
 
             # Update VM to the latest binaries from distribution
             # package.
