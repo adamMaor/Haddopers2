@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
 			# this is the slave IP : 56.22.20.02
-            sudo echo "IP_ADDRESS slave" >> /etc/hosts
+            sudo echo "56.22.20.02 slave" >> /etc/hosts
 
             # Update VM to the latest binaries from distribution
             # package.
@@ -45,7 +45,7 @@ Vagrant.configure(2) do |config|
         nodeB.vm.provision "shell", inline: <<-SHELL
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
 			# this is the master IP : 56.22.20.01
-            sudo echo "IP_ADDRESS master" >> /etc/hosts
+            sudo echo "56.22.20.01 master" >> /etc/hosts
 
             # Update VM to the latest binaries from distribution
             # package.
