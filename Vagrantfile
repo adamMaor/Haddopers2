@@ -28,6 +28,8 @@ Vagrant.configure(2) do |config|
             mkdir -p /vagrant/files/ssh/
             cp /home/vagrant/.ssh/id_rsa.pub /vagrant/files/ssh/master.pub
             cp /vagrant/after_startup.sh /home/vagrant/.
+			wget -O /vagrant/hadoop-2.7.2.tar.gz http://apache.spd.co.il/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz 
+			tar zxf /vagrant/hadoop-2.7.2.tar.gz -C /home/vagrant/
 
             # TODO: In order to complete Hadoop configuration you have to
             # provide here set of Linux shell commands which completes
@@ -61,6 +63,7 @@ Vagrant.configure(2) do |config|
             mkdir -p /vagrant/files/ssh/
             cp /home/vagrant/.ssh/id_rsa.pub /vagrant/files/ssh/slave.pub
             cp /vagrant/after_startup.sh /home/vagrant/.
+			tar zxf /vagrant/hadoop-2.7.2.tar.gz -C /home/vagrant/
 
             # TODO: In order to complete Hadoop configuration you have to
             # provide here set of Linux shell commands which completes
