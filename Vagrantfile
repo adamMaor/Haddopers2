@@ -4,10 +4,14 @@
 Vagrant.configure(2) do |config|
     config.vm.define "nodeA" do |nodeA|
         nodeA.vm.box = "ubuntu/trusty64"
+		# give name to node
+		nodeA.vm.hostname = "slave"
+		
         nodeA.vm.network "forwarded_port", guest: 8088, host: 8088
         nodeA.vm.provision "shell", inline: <<-SHELL
 
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
+			# this is the slave IP : 56.22.20.02
             sudo echo "IP_ADDRESS slave" >> /etc/hosts
 
             # Update VM to the latest binaries from distribution
@@ -35,9 +39,12 @@ Vagrant.configure(2) do |config|
 
     config.vm.define "nodeB" do |nodeB|
         nodeB.vm.box = "ubuntu/trusty64"
+		# give name to node
+		nodeB.vm.hostname = "master"
         nodeB.vm.network "forwarded_port", guest: 8088, host: 9088
         nodeB.vm.provision "shell", inline: <<-SHELL
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
+			# this is the master IP : 56.22.20.01
             sudo echo "IP_ADDRESS master" >> /etc/hosts
 
             # Update VM to the latest binaries from distribution
