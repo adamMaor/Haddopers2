@@ -15,3 +15,6 @@ files/ssh/slave.pub
 .vagrant/machines/nodeB/virtualbox/id
 .vagrant/machines/nodeB/virtualbox/action_set_name
 .vagrant/machines/nodeB/virtualbox/index_uuid
+.vagrant/machines/nodeB/virtualbox/action_set_name
+.vagrant/machines/nodeB/virtualbox/id
+.vagrant/machines/nodeB/virtualbox/index_uuid

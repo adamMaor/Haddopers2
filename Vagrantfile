@@ -17,8 +17,8 @@ Vagrant.configure(2) do |config|
 
             # Update VM to the latest binaries from distribution
             # package.
-			sudo apt-get update && sudo apt-get upgrade -y
-            sudo apt-get install -y vim telnet wget curl htop nmon
+			#sudo apt-get update && sudo apt-get upgrade -y
+            #sudo apt-get install -y vim telnet wget curl htop nmon
 
             # Installing and configuring java.
             cp /vagrant/install_java.sh .
@@ -59,8 +59,8 @@ Vagrant.configure(2) do |config|
 
             # Update VM to the latest binaries from distribution
             # package.
-            sudo apt-get update && sudo apt-get upgrade -y
-            sudo apt-get install -y vim telnet wget curl htop nmon
+            #sudo apt-get update && sudo apt-get upgrade -y
+            #sudo apt-get install -y vim telnet wget curl htop nmon
 
             # Installing and configuring java.
             cp /vagrant/install_java.sh .
@@ -83,7 +83,7 @@ Vagrant.configure(2) do |config|
 			./hadoop_conf_script.sh
 			
 			#copy Master configuration files
-			sudo cp -r /vagrant/conf_files/for_master/. $HADOOP_HOME/etc/hadoop/			
+			sudo cp -r /vagrant/conf_files/for_master/. /home/vagrant/hadoop-2.7.2/etc/hadoop/			
         SHELL
     end
 end
