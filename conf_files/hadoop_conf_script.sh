@@ -1,10 +1,9 @@
 # set ENVIRONMENT vars
 sudo cat /vagrant/conf_files/bashrc_env_variables >> /home/vagrant/.bashrc
-source /home/vagrant/.bashrc
-#change owner
-sudo chown -R vagrant $HADOOP_HOME
+# set owner
+sudo chown -R vagrant /home/vagrant/hadoop-2.7.2/
 # make dirs for nodes
-sudo mkdir -p $HADOOP_HOME/hadoop_data/hdfs/namenode
-sudo mkdir -p $HADOOP_HOME/hadoop_data/hdfs/datanode
+sudo mkdir -p /home/vagrant/hadoop-2.7.2/hadoop_data/hdfs/namenode
+sudo mkdir -p /home/vagrant/hadoop-2.7.2/hadoop_data/hdfs/datanode
 #copy configuration files
-sudo cp -r /vagrant/conf_files/hadoop_xmls/. $HADOOP_HOME/etc/hadoop/
+sudo cp -r /vagrant/conf_files/hadoop_xmls/. /home/vagrant/hadoop-2.7.2/etc/hadoop/
