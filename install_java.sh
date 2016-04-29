@@ -28,3 +28,4 @@ rm -f equip_base.sh
 rm -f equip_java7_64.sh
 
 java -version
+

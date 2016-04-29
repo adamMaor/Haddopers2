@@ -1,0 +1,10 @@
+hadoop-2.7.2.tar.gz
+files/ssh/master.pub
+files/ssh/slave.pub
+.vagrant/machines/nodeA/virtualbox/action_provision
+.vagrant/machines/nodeA/virtualbox/creator_uid
+.vagrant/machines/nodeA/virtualbox/action_set_name
+.vagrant/machines/nodeA/virtualbox/synced_folders
+.vagrant/machines/nodeA/virtualbox/private_key
+.vagrant/machines/nodeA/virtualbox/index_uuid
+.vagrant/machines/nodeA/virtualbox/id
