@@ -1,5 +1,6 @@
 # set ENVIRONMENT vars
-sudo cat /vagrant/conf_files/bashrc_env_variables >> ~/.bashrc
+sudo cat /vagrant/conf_files/bashrc_env_variables >> /home/vagrant/.bashrc
+
 # make dirs for nodes
 sudo mkdir -p $HADOOP_HOME/hadoop_data/hdfs/namenode
 sudo mkdir -p $HADOOP_HOME/hadoop_data/hdfs/datanode

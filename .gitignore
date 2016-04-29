@@ -9,3 +9,9 @@ files/ssh/slave.pub
 .vagrant/machines/nodeA/virtualbox/index_uuid
 .vagrant/machines/nodeA/virtualbox/id
 .vagrant/machines/nodeB/virtualbox/private_key
+.vagrant/machines/nodeB/virtualbox/action_provision
+.vagrant/machines/nodeB/virtualbox/id
+.vagrant/machines/nodeB/virtualbox/synced_folders
+.vagrant/machines/nodeB/virtualbox/id
+.vagrant/machines/nodeB/virtualbox/action_set_name
+.vagrant/machines/nodeB/virtualbox/index_uuid
