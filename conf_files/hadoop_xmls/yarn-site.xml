@@ -16,24 +16,25 @@
 
 <!-- Site specific YARN configuration properties -->
 	<property>
+		<name>yarn.resourcemanager.hostname</name>
+		<value>master</value>
+		<description>The hostname of the RM.</description>
+	</property>
+	<property>
 		<name>yarn.nodemanager.aux-services</name>
 		<value>mapreduce_shuffle</value>
+		<description>shuffle service for MapReduce</description>
 	</property>
 	<property>
-		<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
-		<value> org.apache.hadoop.mapred.ShuffleHandler</value>
+		<name>yarn.resourcemanager.address</name>
+		<value>master:8050</value>
+	<property>
+	<property>
+		<name>yarn.resourcemanager.resource-tracker.address</name>
+		<value>master:8025</value>
 	</property>
 	<property>
-		  <name>yarn.resourcemanager.resource-tracker.address</name>
-		  <value>master:8025</value>
+		<name>yarn.resourcemanager.scheduler.address</name>
+		<value>master:8030</value>
 	</property>
-	<property>
-		  <name>yarn.resourcemanager.scheduler.address</name>
-		  <value>master:8030</value>
-	</property>
-	<property>
-		  <name>yarn.resourcemanager.address</name>
-		  <value>master:8050</value>
-	</property>
-
 </configuration>

@@ -5,15 +5,15 @@ Vagrant.configure(2) do |config|
     config.vm.define "nodeA" do |nodeA|
         nodeA.vm.box = "ubuntu/trusty64"
 		# give name to node
-		nodeA.vm.hostname = "slave"		
-		nodeA.vm.network "private_network", ip: "56.22.20.2"
+		nodeA.vm.hostname = "slave"
+		nodeA.vm.network "private_network", ip: "56.22.1.21"
         nodeA.vm.network "forwarded_port", guest: 8088, host: 8088
         nodeA.vm.provision "shell", inline: <<-SHELL
 
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
-			# this is the slave IP : 56.22.20.02
-			sudo echo "56.22.20.1 master" >> /etc/hosts
-            sudo echo "56.22.20.2 slave" >> /etc/hosts
+			# this is the slave IP : 56.22.1.21
+			sudo echo "56.22.1.20 master" >> /etc/hosts
+            sudo echo "56.22.1.21 slave" >> /etc/hosts
 
             # Update VM to the latest binaries from distribution
             # package.
@@ -35,15 +35,15 @@ Vagrant.configure(2) do |config|
             # instalation and configuration of Hadoop cluster.
 
             # !!! Fill your commands here !!!
-			# wget -O /vagrant/hadoop-2.7.2.tar.gz http://apache.spd.co.il/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz 
+			# wget -O /vagrant/hadoop-2.7.2.tar.gz http://apache.spd.co.il/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz
 			sudo tar zxf /vagrant/hadoop-2.7.2.tar.gz -C /home/vagrant/
-			
+
 			#now setup ENVIROMENT
 			cp /vagrant/conf_files/hadoop_conf_script.sh .
-			./hadoop_conf_script.sh		
+			./hadoop_conf_script.sh
 
-			
-			
+
+
         SHELL
     end
 
@@ -51,13 +51,13 @@ Vagrant.configure(2) do |config|
         nodeB.vm.box = "ubuntu/trusty64"
 		# give name to node
 		nodeB.vm.hostname = "master"
-		nodeB.vm.network "private_network", ip: "56.22.20.1"
+		nodeB.vm.network "private_network", ip: "56.22.1.20"
         nodeB.vm.network "forwarded_port", guest: 8088, host: 9088
         nodeB.vm.provision "shell", inline: <<-SHELL
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
-			# this is the master IP : 56.22.20.01
-            sudo echo "56.22.20.1 master" >> /etc/hosts
-			sudo echo "56.22.20.2 slave" >> /etc/hosts
+			# this is the master IP : 56.22.1.20
+            sudo echo "56.22.1.20 master" >> /etc/hosts
+			sudo echo "56.22.1.21 slave" >> /etc/hosts
 
             # Update VM to the latest binaries from distribution
             # package.
@@ -83,12 +83,12 @@ Vagrant.configure(2) do |config|
 			#now setup ENVIROMENT
 			cp /vagrant/conf_files/hadoop_conf_script.sh .
 			./hadoop_conf_script.sh
-			
-			#copy Master configuration files
-			sudo cp -r /vagrant/conf_files/for_master/. /home/vagrant/hadoop-2.7.2/etc/hadoop/	
 
-			
-		
+			#copy Master configuration files
+			sudo cp -r /vagrant/conf_files/for_master/. /home/vagrant/hadoop-2.7.2/etc/hadoop/
+
+
+
         SHELL
     end
 end

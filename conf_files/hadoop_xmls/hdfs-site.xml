@@ -17,14 +17,17 @@
 <!-- Put site-specific property overrides in this file. -->
 
 <configuration>
-	<configuration>
 		<property>
 			<name>dfs.replication</name>
 			<value>1</value>
 		</property>
 		<property>
 			<name>dfs.datanode.data.dir</name>
-			<value>file:/home/vagrant/hadoop-2.7.2/hadoop_data/hdfs/datanode</value>
+			<value>file:/home/vagrant/hadoop-2.7.2/hadoop_data/hdfs/datanode/</value>
 		</property>
-	</configuration>
+		<property>
+        	<name>dfs.namenode.name.dir</name>
+        	<value>file:/home/vagrant/hadoop-2.7.2/hadoop_data/hdfs/namenode/</value>
+        	<description>NameNode directory for namespace and transaction logs storage.</description>
+    </property>
 </configuration>
