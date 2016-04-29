@@ -85,7 +85,10 @@ Vagrant.configure(2) do |config|
 			./hadoop_conf_script.sh
 			
 			#copy Master configuration files
-			sudo cp -r /vagrant/conf_files/for_master/. /home/vagrant/hadoop-2.7.2/etc/hadoop/			
+			sudo cp -r /vagrant/conf_files/for_master/. /home/vagrant/hadoop-2.7.2/etc/hadoop/	
+
+			
+		
         SHELL
     end
 end

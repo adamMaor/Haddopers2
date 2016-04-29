@@ -23,6 +23,16 @@
 
 # The java implementation to use.
 export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_77
+export HADOOP_HOME=/home/vagrant/hadoop-2.7.2
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
+export HADOOP_MAPRED_HOME=$HADOOP_HOME
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+alias jps='$JAVA_HOME/bin/jps'
 
 # The jsvc implementation to use. Jsvc is required to run secure datanodes
 # that bind to privileged ports to provide authentication of data transfer
