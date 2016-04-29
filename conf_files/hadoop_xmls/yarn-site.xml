@@ -28,7 +28,7 @@
 	<property>
 		<name>yarn.resourcemanager.address</name>
 		<value>master:8050</value>
-	<property>
+	</property>
 	<property>
 		<name>yarn.resourcemanager.resource-tracker.address</name>
 		<value>master:8025</value>
