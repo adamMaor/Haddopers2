@@ -26,10 +26,10 @@ org.apache.hadoop.yarn.applications.distributedshell.Client \
 --shell_command date --num_containers 2 --master_memory 1024
 
 #Hadoop cluster startup from apache.hadoop reference
-[hdfs]$ $HADOOP_PREFIX/bin/hdfs namenode -format <cluster_name>
-[hdfs]$ $HADOOP_PREFIX/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
-[hdfs]$ $HADOOP_PREFIX/sbin/hadoop-daemons.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
-[hdfs]$ $HADOOP_PREFIX/sbin/start-dfs.sh
+[hdfs]$ $HADOOP_HOME/bin/hdfs namenode -format <cluster_name>
+[hdfs]$ $HADOOP_HOME/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
+[hdfs]$ $HADOOP_HOME/sbin/hadoop-daemons.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
+[hdfs]$ $HADOOP_HOME/sbin/start-dfs.sh
 [yarn]$ $HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start resourcemanager
 [yarn]$ $HADOOP_YARN_HOME/sbin/yarn-daemons.sh --config $HADOOP_CONF_DIR start nodemanager
 [yarn]$ $HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start proxyserver
