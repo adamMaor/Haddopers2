@@ -2,16 +2,12 @@ vagrant destroy -f
 ./start.sh
 
 
-
-
-
-
-
 sudo chown -R vagrant $HADOOP_HOME
+
+
+start-all.sh
 start-dfs.sh
-
-
-
+start-yarn.sh
 
 
 #aliases
