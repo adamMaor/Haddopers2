@@ -39,7 +39,7 @@ Vagrant.configure(2) do |config|
 			sudo tar zxf /vagrant/hadoop-2.7.2.tar.gz -C /home/vagrant/
 			
 			#now setup ENVIROMENT
-			source /vagrant/conf_files/hadoop_conf_script.sh
+			source /vagrant/conf_files/hadoop_conf_script.sh			
 			
         SHELL
     end

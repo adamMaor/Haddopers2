@@ -8,3 +8,4 @@ files/ssh/slave.pub
 .vagrant/machines/nodeA/virtualbox/private_key
 .vagrant/machines/nodeA/virtualbox/index_uuid
 .vagrant/machines/nodeA/virtualbox/id
+.vagrant/machines/nodeB/virtualbox/private_key
