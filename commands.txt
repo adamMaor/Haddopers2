@@ -20,3 +20,11 @@ alias vd='vagrant destroy -f'
 alias vs='./start.sh'
 alias slave='vagrant ssh nodeA'
 alias master='vagrant ssh nodeB'
+
+
+
+hadoop jar \
+../share/hadoop/yarn/hadoop-yarn-applications-distributedshell-2.7.2.jar \
+org.apache.hadoop.yarn.applications.distributedshell.Client \
+--jar ../share/hadoop/yarn/hadoop-yarn-applications-distributedshell-2.7.2.jar \
+--shell_command date --num_containers 2 --master_memory 1024

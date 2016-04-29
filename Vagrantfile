@@ -17,8 +17,8 @@ Vagrant.configure(2) do |config|
 
             # Update VM to the latest binaries from distribution
             # package.
-			#sudo apt-get update && sudo apt-get upgrade -y
-            #sudo apt-get install -y vim telnet wget curl htop nmon
+			sudo apt-get update && sudo apt-get upgrade -y
+            sudo apt-get install -y vim telnet wget curl htop nmon
 
             # Installing and configuring java.
             cp /vagrant/install_java.sh .
@@ -59,8 +59,8 @@ Vagrant.configure(2) do |config|
 
             # Update VM to the latest binaries from distribution
             # package.
-            #sudo apt-get update && sudo apt-get upgrade -y
-            #sudo apt-get install -y vim telnet wget curl htop nmon
+            sudo apt-get update && sudo apt-get upgrade -y
+            sudo apt-get install -y vim telnet wget curl htop nmon
 
             # Installing and configuring java.
             cp /vagrant/install_java.sh .
