@@ -1,0 +1,11 @@
+vagrant destroy -f
+./start.sh
+
+
+
+
+
+
+
+
+start-dfs.sh
