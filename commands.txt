@@ -7,5 +7,16 @@ vagrant destroy -f
 
 
 
-
+sudo chown -R vagrant $HADOOP_HOME
 start-dfs.sh
+
+
+
+
+
+#aliases
+
+alias vd='vagrant destroy -f'
+alias vs='./start.sh'
+alias slave='vagrant ssh nodeA'
+alias master='vagrant ssh nodeB'
