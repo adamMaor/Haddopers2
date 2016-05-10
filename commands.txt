@@ -1,37 +1,53 @@
-vagrant destroy -f
-./start.sh
-
-
-sudo chown -R vagrant $HADOOP_HOME
-
-
-start-all.sh
-start-dfs.sh
-start-yarn.sh
-
-
-#aliases
-
-alias vd='vagrant destroy -f'
+alias vd='vagrant destroy'
 alias vs='./start.sh'
 alias slave='vagrant ssh nodeA'
 alias master='vagrant ssh nodeB'
 
 
+alias jps='$JAVA_HOME/bin/jps'
+alias aadfsAndYarn='start-dfs.sh; start-yarn.sh' 
+alias aastopDfsAndYarn='stop-yarn.sh; stop-dfs.sh' 
+alias aaformatNameNode='hdfs namenode -format'
+alias aaformatDataNode='hdfs datanode -format'
+alias aastartOnlyNameNode='hadoop-daemon.sh start namenode'
+alias aastartOnlyDataNode='hadoop-daemon.sh start datanode'
+alias aastartOnlyResourcemanager='yarn-daemon.sh start resourcemanager'
+alias aastartOnlyNodeManager='yarn-daemon.sh start nodemanager'
+alias aacmdfile='cat -n ~/bash.rc'
+
+
+
+
+
 
 hadoop jar \
-../share/hadoop/yarn/hadoop-yarn-applications-distributedshell-2.7.2.jar \
+$HADOOP_HOME/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-2.7.2.jar \
 org.apache.hadoop.yarn.applications.distributedshell.Client \
---jar ../share/hadoop/yarn/hadoop-yarn-applications-distributedshell-2.7.2.jar \
+--jar $HADOOP_HOME/share/hadoop/yarn/hadoop-yarn-applications-distributedshell-2.7.2.jar \
 --shell_command date --num_containers 2 --master_memory 1024
 
-#Hadoop cluster startup from apache.hadoop reference
-[hdfs]$ $HADOOP_HOME/bin/hdfs namenode -format <cluster_name>
-[hdfs]$ $HADOOP_HOME/sbin/hadoop-daemon.sh --config $HADOOP_CONF_DIR --script hdfs start namenode
-[hdfs]$ $HADOOP_HOME/sbin/hadoop-daemons.sh --config $HADOOP_CONF_DIR --script hdfs start datanode
-[hdfs]$ $HADOOP_HOME/sbin/start-dfs.sh
-[yarn]$ $HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start resourcemanager
-[yarn]$ $HADOOP_YARN_HOME/sbin/yarn-daemons.sh --config $HADOOP_CONF_DIR start nodemanager
-[yarn]$ $HADOOP_YARN_HOME/sbin/yarn-daemon.sh --config $HADOOP_CONF_DIR start proxyserver
-[yarn]$ $HADOOP_PREFIX/sbin/start-yarn.sh
-[mapred]$ $HADOOP_PREFIX/sbin/mr-jobhistory-daemon.sh --config $HADOOP_CONF_DIR start historyserver
+
+hadoop jar $HADOOP_HOME/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar \
+randomwriter out
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sudo apt-get install tree 
+
+varant status
+
+readlink -f .
+
