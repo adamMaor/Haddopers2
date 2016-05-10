@@ -12,7 +12,6 @@ Vagrant.configure(2) do |config|
 		nodeA.vm.provider :virtualbox do |nodeA|
 		nodeA.customize [
 		"modifyvm", :id,
-		"--cpuexecutioncap", "50",
 		"--memory", "2048",
     ]
   end
@@ -54,7 +53,7 @@ Vagrant.configure(2) do |config|
 
 			
 			#copy Slave configuration files
-			sudo cp -r /vagrant/conf_files/for_master/slaves /home/vagrant/hadoop-2.7.2/etc/hadoop/
+			#sudo cp -r /vagrant/conf_files/for_master/slaves /home/vagrant/hadoop-2.7.2/etc/hadoop/
 
 
 
@@ -71,7 +70,6 @@ Vagrant.configure(2) do |config|
 		nodeB.vm.provider :virtualbox do |nodeB|
 		nodeB.customize [
 		"modifyvm", :id,
-		"--cpuexecutioncap", "50",
 		"--memory", "2048",
 		]
 		end
