@@ -8,6 +8,16 @@ Vagrant.configure(2) do |config|
 		nodeA.vm.hostname = "slave"
 		nodeA.vm.network "private_network", ip: "56.22.1.21"
         nodeA.vm.network "forwarded_port", guest: 8088, host: 8088
+		
+		nodeA.vm.provider :virtualbox do |nodeA|
+		nodeA.customize [
+		"modifyvm", :id,
+		"--cpuexecutioncap", "50",
+		"--memory", "2048",
+    ]
+  end
+		
+		
         nodeA.vm.provision "shell", inline: <<-SHELL
 
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
@@ -42,6 +52,10 @@ Vagrant.configure(2) do |config|
 			cp /vagrant/conf_files/hadoop_conf_script.sh .
 			./hadoop_conf_script.sh
 
+			
+			#copy Slave configuration files
+			sudo cp -r /vagrant/conf_files/for_master/slaves /home/vagrant/hadoop-2.7.2/etc/hadoop/
+
 
 
         SHELL
@@ -53,6 +67,15 @@ Vagrant.configure(2) do |config|
 		nodeB.vm.hostname = "master"
 		nodeB.vm.network "private_network", ip: "56.22.1.20"
         nodeB.vm.network "forwarded_port", guest: 8088, host: 9088
+		
+		nodeB.vm.provider :virtualbox do |nodeB|
+		nodeB.customize [
+		"modifyvm", :id,
+		"--cpuexecutioncap", "50",
+		"--memory", "2048",
+		]
+		end
+		
         nodeB.vm.provision "shell", inline: <<-SHELL
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
 			# this is the master IP : 56.22.1.20
@@ -83,6 +106,9 @@ Vagrant.configure(2) do |config|
 			#now setup ENVIROMENT
 			cp /vagrant/conf_files/hadoop_conf_script.sh .
 			./hadoop_conf_script.sh
+			
+			#copy init script for later
+			cp /vagrant/conf_files/hadoop_init_conf.sh .
 
 			#copy Master configuration files
 			sudo cp -r /vagrant/conf_files/for_master/. /home/vagrant/hadoop-2.7.2/etc/hadoop/
