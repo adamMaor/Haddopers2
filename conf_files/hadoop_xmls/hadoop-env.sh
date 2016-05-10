@@ -32,6 +32,12 @@ export HADOOP_HDFS_HOME=$HADOOP_HOME
 export YARN_HOME=$HADOOP_HOME
 export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
 export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib/native"
+export HADOOP_DATANODE_HEAPSIZE="512"
+export HADOOP_JOBTRACKER_HEAPSIZE="512"
+export HADOOP_NAMENODE_HEAPSIZE="512"
+export HADOOP_TASKTRACKER_HEAPSIZE="512"
+export YARN_RESOURCEMANAGER_HEAPSIZE="512"
+export YARN_NODEMANAGER_HEAPSIZE="512"
 alias jps='$JAVA_HOME/bin/jps'
 
 # The jsvc implementation to use. Jsvc is required to run secure datanodes
