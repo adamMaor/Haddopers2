@@ -42,6 +42,7 @@ Vagrant.configure(2) do |config|
             cp /vagrant/after_startup.sh /home/vagrant/.
 
 
+			wget -O /vagrant/hadoop-2.7.2.tar.gz http://apache.spd.co.il/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz
 			sudo tar zxf /vagrant/hadoop-2.7.2.tar.gz -C /home/vagrant/
 
 			#env vars, chowns, new dirs and cumtomised xmls
