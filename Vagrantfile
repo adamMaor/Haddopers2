@@ -9,18 +9,20 @@ Vagrant.configure(2) do |config|
 		nodeA.vm.network "private_network", ip: "56.22.1.21"
         nodeA.vm.network "forwarded_port", guest: 8088, host: 8088
 		
+		#set machine memory
 		nodeA.vm.provider :virtualbox do |nodeA|
 		nodeA.customize [
 		"modifyvm", :id,
 		"--memory", "2048",
-    ]
-  end
+		]
+		end
 		
 		
         nodeA.vm.provision "shell", inline: <<-SHELL
 
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
 			# this is the slave IP : 56.22.1.21
+			sudo sed -i '$d' /etc/hosts
 			sudo echo "56.22.1.20 master" >> /etc/hosts
             sudo echo "56.22.1.21 slave" >> /etc/hosts
 
@@ -39,23 +41,12 @@ Vagrant.configure(2) do |config|
             cp /home/vagrant/.ssh/id_rsa.pub /vagrant/files/ssh/master.pub
             cp /vagrant/after_startup.sh /home/vagrant/.
 
-            # TODO: In order to complete Hadoop configuration you have to
-            # provide here set of Linux shell commands which completes
-            # instalation and configuration of Hadoop cluster.
 
-            # !!! Fill your commands here !!!
-			# wget -O /vagrant/hadoop-2.7.2.tar.gz http://apache.spd.co.il/hadoop/common/hadoop-2.7.2/hadoop-2.7.2.tar.gz
 			sudo tar zxf /vagrant/hadoop-2.7.2.tar.gz -C /home/vagrant/
 
-			#now setup ENVIROMENT
+			#env vars, chowns, new dirs and cumtomised xmls
 			cp /vagrant/conf_files/hadoop_conf_script.sh .
 			./hadoop_conf_script.sh
-
-			
-			#copy Slave configuration files
-			#sudo cp -r /vagrant/conf_files/for_master/slaves /home/vagrant/hadoop-2.7.2/etc/hadoop/
-
-
 
         SHELL
     end
@@ -77,6 +68,7 @@ Vagrant.configure(2) do |config|
         nodeB.vm.provision "shell", inline: <<-SHELL
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
 			# this is the master IP : 56.22.1.20
+			sudo sed -i '$d' /etc/hosts
             sudo echo "56.22.1.20 master" >> /etc/hosts
 			sudo echo "56.22.1.21 slave" >> /etc/hosts
 
@@ -95,11 +87,8 @@ Vagrant.configure(2) do |config|
             cp /home/vagrant/.ssh/id_rsa.pub /vagrant/files/ssh/slave.pub
             cp /vagrant/after_startup.sh /home/vagrant/.
 
-            # TODO: In order to complete Hadoop configuration you have to
-            # provide here set of Linux shell commands which completes
-            # instalation and configuration of Hadoop cluster.
 
-            # !!! Fill your commands here !!!
+
 			sudo tar zxf /vagrant/hadoop-2.7.2.tar.gz -C /home/vagrant/
 			#now setup ENVIROMENT
 			cp /vagrant/conf_files/hadoop_conf_script.sh .
