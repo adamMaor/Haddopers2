@@ -22,7 +22,9 @@ Vagrant.configure(2) do |config|
 
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
 			# this is the slave IP : 56.22.1.21
+			# remove line created by setting host name (127.0.1.1 slave slave)
 			sudo sed -i '$d' /etc/hosts
+			# add slave and master to known hosts
 			sudo echo "56.22.1.20 master" >> /etc/hosts
             sudo echo "56.22.1.21 slave" >> /etc/hosts
 
@@ -69,7 +71,9 @@ Vagrant.configure(2) do |config|
         nodeB.vm.provision "shell", inline: <<-SHELL
             # !!! YOU NEED TO REPLACE HERE CORRECT IP ADDRESS !!!
 			# this is the master IP : 56.22.1.20
+			# remove line created by setting host name (127.0.1.1 master master)
 			sudo sed -i '$d' /etc/hosts
+			# add slave and master to known hosts
             sudo echo "56.22.1.20 master" >> /etc/hosts
 			sudo echo "56.22.1.21 slave" >> /etc/hosts
 
